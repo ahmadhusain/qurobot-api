@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import Datamaster
+from .models import Datamaster, ListDoa
 
 class APISerializer(serializers.ModelSerializer):
     class Meta:
@@ -13,3 +13,8 @@ class PerawiSerializer(serializers.ModelSerializer):
         model = Datamaster
         # fields = '__all)__'
         fields = ['perawi']
+        
+class DoaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ListDoa
+        fields = '__all__'

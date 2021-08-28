@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import APISerializer, PerawiSerializer
-from .models import Datamaster
+from .serializers import APISerializer, PerawiSerializer, DoaSerializer
+from .models import Datamaster, ListDoa
 from django.http import Http404
 import pandas as pd
 
@@ -12,6 +12,7 @@ def apiOverview(request):
     api_urls = {
         'Mencari hadis berdasarkan Imam Perawi dan Nomornya ':'/hadis/<str:ImamPerawi>/<str:no>',
         'Mencari hadis berdasarkan topik tertentu':'/carihadis/<str:keyword>',
+        'Doa-Doa': '/caridoa',
     }
     
     return Response(api_urls)
@@ -62,3 +63,15 @@ def carihadis(request, keyword):
         }
     return Response(to_json)
     # return HttpResponse(serializer.data,content_type="application/json")
+    
+@api_view(['GET'])
+def caridoa(request):
+    data = ListDoa.objects.all()
+    serializer = DoaSerializer(data, many = True)
+    to_json = {
+        'code': 200,
+        'message': 'Success Fetching List Doa',
+        'data': serializer.data
+    }
+    return Response(to_json)
+    # return HttpResponse(to_json, content_type="application/json")
