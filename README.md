@@ -1,6 +1,7 @@
 # Ide API
 
-> API Al-Quran dan Hadis dengan terjemahan Indonesia. Dikembangkan sebagai layanan pendukung Telegram Bot (dalam pengembangan juga) untuk mencari Hadis maupun Ayat Al-Quran sesuai dengan keyword yang diberikan.
+> API Al-Quran dan Hadis dengan terjemahan Indonesia. Dikembangkan sebagai layanan pendukung Telegram Bot (dalam pengembangan juga) untuk mencari Hadis maupun Ayat Al-Quran sesuai dengan keyword yang diberikan. 
+> Sudah mengudara pada http://27.112.79.114:8000/
 
 # Data Source
 
